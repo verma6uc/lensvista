@@ -1,89 +1,74 @@
 
 import { Link } from 'react-router-dom';
-import { Instagram, Twitter, Facebook, Mail } from 'lucide-react';
+import { Mail, Phone, Instagram, Facebook, Twitter } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   return (
-    <footer className="bg-dark text-light py-10">
-      <div className="container mx-auto px-4">
+    <footer className="bg-neutral-dark text-neutral-light">
+      <div className="container mx-auto px-4 py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Brand Section */}
-          <div>
-            <h3 className="text-xl font-heading mb-4">
-              <span className="text-primary">Lens</span>Vista
-            </h3>
-            <p className="font-body mb-4">
-              Capturing moments, preserving memories, and telling stories through the art of photography.
+          {/* Logo and About */}
+          <div className="space-y-4">
+            <Link to="/" className="inline-block">
+              <h2 className="text-2xl font-heading font-bold">
+                Lens<span className="text-primary">Vista</span>
+              </h2>
+            </Link>
+            <p className="text-sm text-gray-300 max-w-xs">
+              Capturing life's most precious moments through the lens of artistry and emotion.
             </p>
-            <div className="flex space-x-4">
-              <SocialLink href="https://instagram.com" aria-label="Instagram">
-                <Instagram size={20} />
-              </SocialLink>
-              <SocialLink href="https://twitter.com" aria-label="Twitter">
-                <Twitter size={20} />
-              </SocialLink>
-              <SocialLink href="https://facebook.com" aria-label="Facebook">
-                <Facebook size={20} />
-              </SocialLink>
-              <SocialLink href="mailto:info@lensvista.com" aria-label="Email">
-                <Mail size={20} />
-              </SocialLink>
-            </div>
           </div>
-          
+
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-heading mb-4">Quick Links</h3>
-            <nav className="flex flex-col space-y-2">
-              <FooterLink to="/">Home</FooterLink>
-              <FooterLink to="/gallery">Gallery</FooterLink>
-              <FooterLink to="/about">About</FooterLink>
-              <FooterLink to="/contact">Contact</FooterLink>
-            </nav>
+            <h3 className="text-lg font-heading font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              <li><Link to="/gallery" className="text-sm hover:text-primary transition-colors duration-300">Gallery</Link></li>
+              <li><Link to="/about" className="text-sm hover:text-primary transition-colors duration-300">About</Link></li>
+              <li><Link to="/contact" className="text-sm hover:text-primary transition-colors duration-300">Contact</Link></li>
+            </ul>
           </div>
-          
-          {/* Contact Info */}
+
+          {/* Contact */}
           <div>
-            <h3 className="text-xl font-heading mb-4">Contact</h3>
-            <address className="font-body not-italic">
-              <p className="mb-2">info@lensvista.com</p>
-              <p className="mb-2">+1 (555) 123-4567</p>
-              <p>New York, NY 10001</p>
-            </address>
+            <h3 className="text-lg font-heading font-bold mb-4">Contact</h3>
+            <ul className="space-y-3">
+              <li className="flex items-center gap-2 text-sm">
+                <Mail size={16} />
+                <a href="mailto:info@lensvista.com" className="hover:text-primary transition-colors duration-300">
+                  info@lensvista.com
+                </a>
+              </li>
+              <li className="flex items-center gap-2 text-sm">
+                <Phone size={16} />
+                <a href="tel:+1234567890" className="hover:text-primary transition-colors duration-300">
+                  (123) 456-7890
+                </a>
+              </li>
+              <li className="flex gap-4 mt-4">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-primary transition-colors duration-300">
+                  <Instagram size={20} />
+                </a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-primary transition-colors duration-300">
+                  <Facebook size={20} />
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="hover:text-primary transition-colors duration-300">
+                  <Twitter size={20} />
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-        
-        <div className="border-t border-medium/30 mt-8 pt-8 text-center">
-          <p className="font-body text-sm">
-            © {currentYear} LensVista. All rights reserved.
-          </p>
+
+        {/* Copyright */}
+        <div className="border-t border-gray-700 mt-8 pt-6 text-center text-xs text-gray-400">
+          <p>&copy; {currentYear} LensVista. All rights reserved.</p>
         </div>
       </div>
     </footer>
   );
 };
-
-const FooterLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
-  <Link 
-    to={to} 
-    className="font-body text-light/80 hover:text-primary transition-colors duration-200"
-  >
-    {children}
-  </Link>
-);
-
-const SocialLink = ({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
-  <a 
-    href={href}
-    className="text-light/80 hover:text-primary transition-colors duration-200"
-    target="_blank"
-    rel="noopener noreferrer"
-    {...props}
-  >
-    {children}
-  </a>
-);
 
 export default Footer;
