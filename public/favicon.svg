@@ -1,13 +1,5 @@
 
-<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="12" cy="12" r="3.5" stroke="#D32F2F" stroke-width="1.5" />
-  <path d="M12 4V2.5" stroke="#D32F2F" stroke-width="1.5" stroke-linecap="round" />
-  <path d="M19.0708 19.0713L20.1318 20.1323" stroke="#D32F2F" stroke-width="1.5" stroke-linecap="round" />
-  <path d="M4.92871 19.0713L3.86768 20.1323" stroke="#D32F2F" stroke-width="1.5" stroke-linecap="round" />
-  <path d="M12 21.5V20" stroke="#D32F2F" stroke-width="1.5" stroke-linecap="round" />
-  <path d="M20 12H21.5" stroke="#D32F2F" stroke-width="1.5" stroke-linecap="round" />
-  <path d="M2.5 12H4" stroke="#D32F2F" stroke-width="1.5" stroke-linecap="round" />
-  <path d="M4.92969 4.92871L3.86866 3.86768" stroke="#D32F2F" stroke-width="1.5" stroke-linecap="round" />
-  <path d="M19.0718 4.92969L20.1328 3.86866" stroke="#D32F2F" stroke-width="1.5" stroke-linecap="round" />
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera">
+  <path fill="#D32F2F" d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
+  <circle fill="#1976D2" cx="12" cy="13" r="3"/>
 </svg>
-  
