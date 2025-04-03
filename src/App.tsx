@@ -6,10 +6,11 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        {/* Routes will be added here */}
-        <Route index element={<div className="min-h-screen flex items-center justify-center">
-          <h1 className="text-4xl font-heading text-primary">Welcome to LensVista</h1>
-        </div>} />
+        <Route index element={<div>Home</div>} />
+        <Route path="gallery" element={<div>Gallery</div>} />
+        <Route path="about" element={<div>About</div>} />
+        <Route path="contact" element={<div>Contact</div>} />
+        <Route path="*" element={<div>Page Not Found</div>} />
       </Route>
     </Routes>
   );

@@ -7,7 +7,7 @@ module.exports = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   theme: {
     container: {
       center: true,
@@ -45,7 +45,7 @@ module.exports = {
         },
         neutral: {
           dark: "#212121",
-          DEFAULT: "#757575",
+          medium: "#757575",
           light: "#F5F5F5",
         },
         popover: {
@@ -62,10 +62,6 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      fontFamily: {
-        heading: ['"Roboto Bold"', 'sans-serif'],
-        body: ['"Open Sans"', 'sans-serif'],
-      },
       keyframes: {
         "accordion-down": {
           from: { height: 0 },
@@ -79,6 +75,10 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      fontFamily: {
+        heading: ['Roboto Bold', 'sans-serif'],
+        body: ['Open Sans', 'sans-serif'],
       },
     },
   },
