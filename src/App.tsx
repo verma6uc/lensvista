@@ -1,5 +1,5 @@
 
-import { Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 
 function App() {
@@ -7,11 +7,9 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         {/* Routes will be added here */}
-        <Route index element={<div>Home Page</div>} />
-        <Route path="gallery" element={<div>Gallery Page</div>} />
-        <Route path="about" element={<div>About Page</div>} />
-        <Route path="contact" element={<div>Contact Page</div>} />
-        <Route path="*" element={<div>Not Found</div>} />
+        <Route index element={<div className="min-h-screen flex items-center justify-center">
+          <h1 className="text-4xl font-heading text-primary">Welcome to LensVista</h1>
+        </div>} />
       </Route>
     </Routes>
   );
