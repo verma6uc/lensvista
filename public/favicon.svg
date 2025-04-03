@@ -1,7 +1,5 @@
 
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" rx="6" fill="#D32F2F"/>
-  <path d="M22 12C22 13.1046 21.1046 14 20 14C18.8954 14 18 13.1046 18 12C18 10.8954 18.8954 10 20 10C21.1046 10 22 10.8954 22 12Z" fill="white"/>
-  <path d="M9 7H13L14.6 10H18C19.1046 10 20 10.8954 20 12V22C20 23.1046 19.1046 24 18 24H8C6.89543 24 6 23.1046 6 22V9C6 7.89543 6.89543 7 8 7H9ZM13 18C13 16.3431 11.6569 15 10 15C8.34315 15 7 16.3431 7 18C7 19.6569 8.34315 21 10 21C11.6569 21 13 19.6569 13 18Z" fill="white"/>
-  <path d="M26 10C26 9.44772 25.5523 9 25 9H23V7H25C26.6569 7 28 8.34315 28 10V22C28 23.6569 26.6569 25 25 25H23V23H25C25.5523 23 26 22.5523 26 22V10Z" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera">
+  <path fill="#D32F2F" d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
+  <circle fill="#1976D2" cx="12" cy="13" r="3"/>
 </svg>

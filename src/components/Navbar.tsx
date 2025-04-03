@@ -4,66 +4,71 @@ import { Link } from 'react-router-dom';
 import { Menu, X, Camera } from 'lucide-react';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm">
-      <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="flex items-center space-x-2">
-          <Camera className="h-8 w-8 text-primary" />
-          <span className="text-2xl font-heading font-bold text-neutral-dark">
-            Lens<span className="text-primary">Vista</span>
-          </span>
-        </Link>
+    <header className="bg-white shadow-sm">
+      <div className="container mx-auto px-4">
+        <nav className="flex items-center justify-between py-4">
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-2">
+            <Camera className="h-8 w-8 text-primary" />
+            <span className="text-2xl font-heading font-bold">
+              <span className="text-primary">Lens</span>
+              <span className="text-accent">Vista</span>
+            </span>
+          </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-8">
-          <NavLink to="/" label="Home" />
-          <NavLink to="/gallery" label="Gallery" />
-          <NavLink to="/about" label="About" />
-          <NavLink to="/contact" label="Contact" />
-        </div>
-
-        {/* Mobile Navigation Button */}
-        <button
-          className="md:hidden text-neutral-dark focus:outline-none"
-          onClick={toggleMenu}
-          aria-label="Menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </nav>
-
-      {/* Mobile Navigation Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white border-b border-gray-100 shadow-md">
-          <div className="container mx-auto px-4 py-2 flex flex-col space-y-4">
-            <MobileNavLink to="/" label="Home" onClick={toggleMenu} />
-            <MobileNavLink to="/gallery" label="Gallery" onClick={toggleMenu} />
-            <MobileNavLink to="/about" label="About" onClick={toggleMenu} />
-            <MobileNavLink to="/contact" label="Contact" onClick={toggleMenu} />
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex space-x-8">
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/gallery">Gallery</NavLink>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/contact">Contact</NavLink>
           </div>
-        </div>
-      )}
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden focus:outline-none"
+            onClick={toggleMenu}
+          >
+            {isMenuOpen ? (
+              <X className="h-6 w-6 text-dark" />
+            ) : (
+              <Menu className="h-6 w-6 text-dark" />
+            )}
+          </button>
+        </nav>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden py-4 pb-6 space-y-4">
+            <MobileNavLink to="/" onClick={toggleMenu}>Home</MobileNavLink>
+            <MobileNavLink to="/gallery" onClick={toggleMenu}>Gallery</MobileNavLink>
+            <MobileNavLink to="/about" onClick={toggleMenu}>About</MobileNavLink>
+            <MobileNavLink to="/contact" onClick={toggleMenu}>Contact</MobileNavLink>
+          </div>
+        )}
+      </div>
     </header>
   );
 };
 
 interface NavLinkProps {
   to: string;
-  label: string;
+  children: React.ReactNode;
 }
 
-const NavLink = ({ to, label }: NavLinkProps) => (
+const NavLink = ({ to, children }: NavLinkProps) => (
   <Link
     to={to}
-    className="font-medium text-neutral-medium hover:text-primary transition-colors duration-300"
+    className="text-dark hover:text-primary font-body font-medium transition-colors"
   >
-    {label}
+    {children}
   </Link>
 );
 
@@ -71,13 +76,13 @@ interface MobileNavLinkProps extends NavLinkProps {
   onClick: () => void;
 }
 
-const MobileNavLink = ({ to, label, onClick }: MobileNavLinkProps) => (
+const MobileNavLink = ({ to, onClick, children }: MobileNavLinkProps) => (
   <Link
     to={to}
-    className="font-medium text-neutral-medium hover:text-primary py-2 border-b border-gray-100 transition-colors duration-300"
+    className="block text-dark hover:text-primary font-body font-medium py-2 transition-colors"
     onClick={onClick}
   >
-    {label}
+    {children}
   </Link>
 );
 
