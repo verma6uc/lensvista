@@ -3,10 +3,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   theme: {
     container: {
@@ -20,49 +20,21 @@ module.exports = {
       colors: {
         primary: {
           DEFAULT: "#D32F2F",
-          50: "#FBDADA",
-          100: "#F9C1C1",
-          200: "#F49090",
-          300: "#EF5F5F",
-          400: "#EA2F2F",
-          500: "#D32F2F",
-          600: "#A62525",
-          700: "#791B1B",
-          800: "#4C1111",
-          900: "#1F0707",
-          950: "#0E0303",
+          foreground: "#FFFFFF",
         },
         secondary: {
           DEFAULT: "#FFC107",
-          50: "#FFF8E0",
-          100: "#FFF3C7",
-          200: "#FFEA94",
-          300: "#FFE061",
-          400: "#FFD72E",
-          500: "#FFC107",
-          600: "#D39E00",
-          700: "#A07800",
-          800: "#6D5200",
-          900: "#3A2C00",
-          950: "#201800",
+          foreground: "#212121",
         },
         accent: {
           DEFAULT: "#1976D2",
-          50: "#BAD9F6",
-          100: "#A6CEF4",
-          200: "#7DB8EF",
-          300: "#54A2EA",
-          400: "#2B8CE6",
-          500: "#1976D2",
-          600: "#135CA3",
-          700: "#0D4274",
-          800: "#082845",
-          900: "#030E16",
-          950: "#010407",
+          foreground: "#FFFFFF",
         },
-        dark: "#212121",
-        medium: "#757575",
-        light: "#F5F5F5",
+        neutral: {
+          dark: "#212121",
+          medium: "#757575",
+          light: "#F5F5F5",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -91,8 +63,8 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        heading: ["Roboto", "sans-serif"],
-        body: ["Open Sans", "sans-serif"],
+        sans: ["Open Sans", "sans-serif"],
+        heading: ["Roboto Bold", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
@@ -111,4 +83,5 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
+  

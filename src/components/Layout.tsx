@@ -1,14 +1,16 @@
 
-import { Outlet } from 'react-router-dom';
-import Navbar from './Navbar';
-import Footer from './Footer';
+import { Outlet } from "react-router-dom";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const Layout = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-light">
+    <div className="flex min-h-screen flex-col">
       <Navbar />
-      <main className="flex-grow container mx-auto px-4 py-8">
-        <Outlet />
+      <main className="flex-1 py-10">
+        <div className="container mx-auto px-4">
+          <Outlet />
+        </div>
       </main>
       <Footer />
     </div>
@@ -16,3 +18,4 @@ const Layout = () => {
 };
 
 export default Layout;
+  

@@ -6,47 +6,47 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 224 71.4% 4.1%;
+    --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
-    --card-foreground: 224 71.4% 4.1%;
+    --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 224 71.4% 4.1%;
-    --primary: 0 69.2% 50.6%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 77% 50%;
     --primary-foreground: 0 0% 98%;
     --secondary: 45 100% 51%;
     --secondary-foreground: 0 0% 9%;
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
-    --accent: 212 73% 59%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 210 79% 46%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 0 69.2% 50.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 72.2% 50.6%;
     --radius: 0.5rem;
   }
- 
+
   .dark {
-    --background: 224 71.4% 4.1%;
-    --foreground: 210 20% 98%;
-    --card: 224 71.4% 4.1%;
-    --card-foreground: 210 20% 98%;
-    --popover: 224 71.4% 4.1%;
-    --popover-foreground: 210 20% 98%;
-    --primary: 0 69.2% 50.6%;
-    --primary-foreground: 210 20% 98%;
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 72.2% 50.6%;
+    --primary-foreground: 0 85.7% 97.3%;
     --secondary: 45 100% 51%;
-    --secondary-foreground: 210 20% 98%;
-    --muted: 215 27.9% 16.9%;
-    --muted-foreground: 217.9 10.6% 64.9%;
-    --accent: 212 73% 59%;
-    --accent-foreground: 210 20% 98%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 210 79% 46%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
-    --ring: 0 69.2% 50.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 72.2% 50.6%;
   }
 }
 
@@ -54,66 +54,103 @@
   * {
     @apply border-border;
   }
+  
   body {
-    @apply bg-background text-foreground font-body;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply bg-background text-foreground;
+    font-family: 'Open Sans', sans-serif;
   }
+  
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold;
+    font-family: 'Roboto Bold', sans-serif;
+    @apply font-bold text-neutral-dark;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+  
+  a {
+    @apply transition-colors duration-200;
+  }
+  
+  button {
+    @apply transition-all duration-200;
   }
 }
 
-/* Custom styles for beautiful UI */
-.hero-pattern {
-  background-image: linear-gradient(to right, rgba(211, 47, 47, 0.1), rgba(25, 118, 210, 0.1));
-  background-size: 200% 200%;
-  animation: gradient-shift 8s ease infinite;
-}
-
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background;
   }
-  50% {
-    background-position: 100% 50%;
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
   }
-  100% {
-    background-position: 0% 50%;
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-foreground hover:bg-accent/90;
+  }
+
+  .container {
+    @apply px-4 mx-auto;
   }
 }
 
-/* Card effects */
-.photo-card {
-  @apply overflow-hidden rounded-lg shadow-md transition-all duration-300;
+/* Custom effects and animations */
+.slide-transition {
+  @apply transition-all duration-300 transform;
 }
 
-.photo-card:hover {
-  @apply shadow-xl transform -translate-y-1;
+.image-card {
+  @apply relative overflow-hidden rounded-md bg-white shadow-md transition-transform duration-300 hover:shadow-lg hover:-translate-y-1;
+  background: linear-gradient(to bottom right, #ffffff 0%, #f5f5f5 100%);
 }
 
-/* Gallery grid layout */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-  gap: 1.5rem;
+.image-card::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 transition-opacity duration-300;
 }
 
-/* Button styles */
-.btn-primary {
-  @apply bg-primary text-white px-6 py-3 rounded-md font-medium 
-    transition-colors hover:bg-primary-600 focus:outline-none focus:ring-2 
-    focus:ring-primary-500 focus:ring-opacity-50;
+.image-card:hover::before {
+  @apply opacity-100;
 }
 
-.btn-secondary {
-  @apply bg-secondary text-dark px-6 py-3 rounded-md font-medium 
-    transition-colors hover:bg-secondary-600 focus:outline-none focus:ring-2 
-    focus:ring-secondary-500 focus:ring-opacity-50;
+/* Card styles */
+.card {
+  @apply rounded-lg bg-white shadow-md overflow-hidden;
+  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+  position: relative;
 }
 
-/* Subtle diagonal pattern for sections */
-.diagonal-pattern {
-  background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.03) 25%, transparent 25%, 
-    transparent 50%, rgba(0, 0, 0, 0.03) 50%, rgba(0, 0, 0, 0.03) 75%, transparent 75%, transparent);
-  background-size: 10px 10px;
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(211, 47, 47, 0.05) 0%, rgba(255, 193, 7, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
+
+.card:hover::after {
+  opacity: 1;
+}
+  

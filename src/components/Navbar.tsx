@@ -1,7 +1,7 @@
 
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X, Camera } from 'lucide-react';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,79 +11,162 @@ const Navbar = () => {
   };
 
   return (
-    <header className="bg-white shadow-sm">
-      <div className="container mx-auto px-4">
-        <nav className="flex items-center justify-between py-4">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <Camera className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-heading font-bold">
-              <span className="text-primary">Lens</span>
-              <span className="text-accent">Vista</span>
-            </span>
+    <header className="border-b border-neutral-medium/10 bg-white shadow-sm">
+      <div className="container mx-auto">
+        <div className="flex h-16 items-center justify-between px-4">
+          <Link to="/" className="flex items-center gap-2">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="text-primary"
+            >
+              <circle cx="12" cy="12" r="3.5" stroke="currentColor" strokeWidth="1.5" />
+              <path
+                d="M12 4V2.5"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+              <path
+                d="M19.0708 19.0713L20.1318 20.1323"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+              <path
+                d="M4.92871 19.0713L3.86768 20.1323"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+              <path
+                d="M12 21.5V20"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+              <path
+                d="M20 12H21.5"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+              <path
+                d="M2.5 12H4"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+              <path
+                d="M4.92969 4.92871L3.86866 3.86768"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+              <path
+                d="M19.0718 4.92969L20.1328 3.86866"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+            </svg>
+            <span className="text-xl font-heading font-bold text-neutral-dark">LensVista</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/gallery">Gallery</NavLink>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/contact">Contact</NavLink>
-          </div>
+          {/* Desktop navigation */}
+          <nav className="hidden md:flex">
+            <ul className="flex space-x-8">
+              <li>
+                <Link
+                  to="/"
+                  className="text-neutral-dark hover:text-primary font-medium transition-colors"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/gallery"
+                  className="text-neutral-dark hover:text-primary font-medium transition-colors"
+                >
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="text-neutral-dark hover:text-primary font-medium transition-colors"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="text-neutral-dark hover:text-primary font-medium transition-colors"
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </nav>
 
-          {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden focus:outline-none"
+          {/* Mobile menu button */}
+          <button
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md md:hidden"
             onClick={toggleMenu}
+            aria-label="Toggle menu"
           >
             {isMenuOpen ? (
-              <X className="h-6 w-6 text-dark" />
+              <X className="h-6 w-6 text-neutral-dark" />
             ) : (
-              <Menu className="h-6 w-6 text-dark" />
+              <Menu className="h-6 w-6 text-neutral-dark" />
             )}
           </button>
-        </nav>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden py-4 pb-6 space-y-4">
-            <MobileNavLink to="/" onClick={toggleMenu}>Home</MobileNavLink>
-            <MobileNavLink to="/gallery" onClick={toggleMenu}>Gallery</MobileNavLink>
-            <MobileNavLink to="/about" onClick={toggleMenu}>About</MobileNavLink>
-            <MobileNavLink to="/contact" onClick={toggleMenu}>Contact</MobileNavLink>
-          </div>
-        )}
+        </div>
       </div>
+
+      {/* Mobile menu */}
+      {isMenuOpen && (
+        <div className="md:hidden">
+          <div className="px-4 py-3 space-y-3 bg-white">
+            <Link
+              to="/"
+              className="block text-neutral-dark hover:text-primary font-medium"
+              onClick={toggleMenu}
+            >
+              Home
+            </Link>
+            <Link
+              to="/gallery"
+              className="block text-neutral-dark hover:text-primary font-medium"
+              onClick={toggleMenu}
+            >
+              Gallery
+            </Link>
+            <Link
+              to="/about"
+              className="block text-neutral-dark hover:text-primary font-medium"
+              onClick={toggleMenu}
+            >
+              About
+            </Link>
+            <Link
+              to="/contact"
+              className="block text-neutral-dark hover:text-primary font-medium"
+              onClick={toggleMenu}
+            >
+              Contact
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
 
-interface NavLinkProps {
-  to: string;
-  children: React.ReactNode;
-}
-
-const NavLink = ({ to, children }: NavLinkProps) => (
-  <Link
-    to={to}
-    className="text-dark hover:text-primary font-body font-medium transition-colors"
-  >
-    {children}
-  </Link>
-);
-
-interface MobileNavLinkProps extends NavLinkProps {
-  onClick: () => void;
-}
-
-const MobileNavLink = ({ to, onClick, children }: MobileNavLinkProps) => (
-  <Link
-    to={to}
-    className="block text-dark hover:text-primary font-body font-medium py-2 transition-colors"
-    onClick={onClick}
-  >
-    {children}
-  </Link>
-);
-
 export default Navbar;
+  
